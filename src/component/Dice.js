@@ -17,7 +17,7 @@ const Dice = () => {
   const handleClick = () => {
     setDiceValue(diceEmpty);
 
-    // Wait for 1 second before changing the dice value
+   
     setTimeout(() => {
       const randomIndex = Math.floor(Math.random() * diceImages.length);
       setDiceValue(diceImages[randomIndex]);

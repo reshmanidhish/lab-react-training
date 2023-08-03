@@ -3,17 +3,21 @@ import { Card, CardBody } from 'reactstrap';
 
 const SingleColorPicker = ({ color, value, onChange }) => {
   return (
-
-   
-    <div>
-      <input
-        type="number"
-        min="0"
-        max="255"
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-      />
-    
+    <div class="row">
+      <div class="col-md-1">
+        <div
+          style={{ width: '20px', height: '20px', background: `${color}` }}
+        /> 
+      </div>
+      <div class="col-md-11">
+        <input
+          type="number"
+          min="0"
+          max="255"
+          value={value}
+          onChange={(e) => onChange(e.target.value)}
+        />
+      </div>
     </div>
   );
 };
@@ -37,20 +41,37 @@ const RGBColorPicker = () => {
 
   return (
     <div>
-     <div
-      className="d-flex justify-content-center align-items-center"
-      style={{ height: '100vh', textAlign: 'left' }}
-    >
-      <Card style={{ width: '400px' }}>
-        <CardBody>
-      <div style={{ width: '100px', height: '100px', backgroundColor: `rgb(${rValue}, ${gValue}, ${bValue})` }}></div>
-      <SingleColorPicker color="r" value={rValue} onChange={handleRChange} />
-      <SingleColorPicker color="g" value={gValue} onChange={handleGChange} />
-      <SingleColorPicker color="b" value={bValue} onChange={handleBChange} />
-      </CardBody>
-      </Card>
-      
-    </div>
+      <div
+        className="d-flex justify-content-center align-items-center"
+        style={{ height: '100vh', textAlign: 'left' }}
+      >
+        <Card style={{ width: '400px' }}>
+          <CardBody>
+            <SingleColorPicker
+              color="red"
+              value={rValue}
+              onChange={handleRChange}
+            />
+            <SingleColorPicker
+              color="green"
+              value={gValue}
+              onChange={handleGChange}
+            />
+            <SingleColorPicker
+              color="blue"
+              value={bValue}
+              onChange={handleBChange}
+            />
+            <div
+              style={{
+                width: '100px',
+                height: '100px',
+                backgroundColor: `rgb(${rValue}, ${gValue}, ${bValue})`,
+              }}
+            ></div>
+          </CardBody>
+        </Card>
+      </div>
     </div>
   );
 };

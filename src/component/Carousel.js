@@ -6,8 +6,8 @@ const Carousel = ({ images }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const handlePrevClick = () => {
-    setCurrentImageIndex((prevIndex) =>
-      prevIndex === 0 ? images.length - 1 : prevIndex - 1
+    setCurrentImageIndex((prevValue) =>
+    prevValue === 0 ? images.length - 1 : prevValue - 1
     );
   };
 
